@@ -68,7 +68,7 @@ def emgm(X, k) :
         (R, llh[t+1]) = e_step(X, R, w, coms)
         if llh[t+1]-llh[t] < tol : break
     label = np.argmax(R,1)
-    return (label, llh[1:])
+    return (label, llh[1:t+1])
 
 def main():
     n = 200
