@@ -2,7 +2,14 @@ import numpy as np
 import numpy.linalg as la
 import matplotlib.pyplot as plt
 
-
+def kmeansrnd(n, d, k):
+    s = 10
+    m = np.random.randn(k, d)
+    X = np.random.randn(n, d)
+    w = np.random.dirichlet(np.ones(k), 1)
+    z = np.random.multinomial(1, w[0], n)
+    X += s * z @ m
+    return (X, np.argmax(z, 1))
 
 
 def log1pexp(x):
